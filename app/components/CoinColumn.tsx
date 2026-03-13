@@ -15,7 +15,7 @@ export default function CoinColumn() {
   };
 
   return (
-    <div className="flex flex-col items-center justify-center min-h-screen gap-10">
+    <div className="flex flex-col items-center justify-center gap-10 mt-20">
 
       {/* Dropdown + Button */}
       <div className="flex gap-4">
@@ -30,7 +30,7 @@ export default function CoinColumn() {
 
         <button
           onClick={handleSubmit}
-          className="bg-blue-500 text-white px-4 py-2 rounded"
+          className="bg-blue-500 hover:bg-blue-600 text-white px-4 py-2 rounded cursor-pointer"
         >
           Submit
         </button>
