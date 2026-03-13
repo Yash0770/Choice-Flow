@@ -16,7 +16,6 @@ export default function CoinColumn() {
 
   return (
     <div className="flex flex-col items-center justify-center gap-10 mt-20">
-
       {/* Dropdown + Button */}
       <div className="flex gap-4">
         <select
@@ -24,8 +23,12 @@ export default function CoinColumn() {
           onChange={(e) => setSelected(e.target.value)}
           className="border px-4 py-2 rounded cursor-pointer"
         >
-          <option value="Head" className="text-black cursor-pointer">Head</option>
-          <option value="Tail" className="text-black cursor-pointer">Tail</option>
+          <option value="Head" className="text-black cursor-pointer">
+            Head
+          </option>
+          <option value="Tail" className="text-black cursor-pointer">
+            Tail
+          </option>
         </select>
 
         <button
@@ -38,7 +41,6 @@ export default function CoinColumn() {
 
       {/* Columns */}
       <div className="flex gap-20">
-
         {/* Head Column */}
         <div className="flex flex-col items-center">
           <h2 className="font-bold mb-2">Head</h2>
@@ -54,7 +56,6 @@ export default function CoinColumn() {
             <p key={index}>{item}</p>
           ))}
         </div>
-
       </div>
     </div>
   );
