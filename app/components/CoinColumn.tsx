@@ -11,20 +11,27 @@ export default function CoinColumns() {
   const [columns, setColumns] = useState<Column[]>([]);
 
   const handleSubmit = () => {
-    setColumns((prev) => {
-      const lastColumn = prev[prev.length - 1];
+  setColumns((prev) => {
+    const lastColumn = prev[prev.length - 1];
 
-      // if same type as previous → push in same column
-      if (lastColumn && lastColumn.type === selected) {
-        const updated = [...prev];
-        updated[updated.length - 1].values.push(selected);
-        return updated;
-      }
+    // If same type as previous → add to existing column immutably
+    if (lastColumn && lastColumn.type === selected) {
+      return prev.map((col, index) => {
+        if (index === prev.length - 1) {
+          // Return a NEW object for the last column
+          return {
+            ...col,
+            values: [...col.values, selected]
+          };
+        }
+        return col;
+      });
+    }
 
-      // otherwise create new column
-      return [...prev, { type: selected, values: [selected] }];
-    });
-  };
+    // Otherwise create new column
+    return [...prev, { type: selected, values: [selected] }];
+  });
+};
 
   return (
     <div className="flex flex-col items-center justify-center min-h-screen gap-10">
